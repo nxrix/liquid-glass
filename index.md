@@ -61,6 +61,8 @@ input[type="range"] {
 
 A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps.
 
+<hr>
+
 <div class="layout">
   <div class="wrap">
     <div id="text"></div>
@@ -68,6 +70,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
   </div>
   <div id="controls"></div>
 </div>
+
+<hr>
 
 ## Usage
 
@@ -83,6 +87,8 @@ const glass = new LiquidGlass(
 );
 ```
 
+<hr>
+
 ## Options
 
 | Option                | Default | Description                                               |
@@ -93,6 +99,8 @@ const glass = new LiquidGlass(
 | `blur`                |     `1` | Backdrop blur                                             |
 | `brightness`          |   `0.9` | Backdrop brightness                                       |
 | `radius`              |  `null` | Border radius in px; `null` uses the element's CSS radius |
+
+<hr>
 
 ## API
 
@@ -107,7 +115,7 @@ glass.set({
 });
 ```
 
-## Destroy
+### Destroy
 
 ```js
 glass.destroy();
