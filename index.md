@@ -5,9 +5,11 @@ layout: default
 <style>
 
 .wrap {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
+  width: fit-content;
   max-width: 512px;
-  margin: 0 auto;
 }
 
 #text {
@@ -33,9 +35,9 @@ layout: default
 }
 
 #controls {
-  max-width: 512px;
-  margin: 0 auto;
+  box-sizing: border-box;
   padding: 16px;
+  max-width: 512px;
 }
 
 .row {
