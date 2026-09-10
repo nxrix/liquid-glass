@@ -9,7 +9,7 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 ```
 
 ```js
-import LiquidGlass from "./index.js";
+import LiquidGlass from "https://nxrix.github.io/liquid-glass/index.js";
 
 const glass = new LiquidGlass(
   document.querySelector("#glass")
