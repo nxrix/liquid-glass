@@ -30,8 +30,8 @@ layout: default
   pointer-events: none;
 
   box-shadow:
-    inset 1px 1px 0 #fff3,
-    inset -1px -1px 0 #fff1;
+    inset 1px 1px 0 #fff5,
+    inset -1px -1px 0 #fff3;
 }
 
 #controls {
@@ -82,7 +82,7 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 ```
 
 ```js
-import LiquidGlass from "./index.js";
+import LiquidGlass from "https://nxrix.github.io/liquid-glass/index.js";
 
 const glass = new LiquidGlass(
   document.querySelector("#glass")
