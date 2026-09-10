@@ -59,6 +59,8 @@ input[type="range"] {
 
 # Liquid Glass
 
+A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps.
+
 <div class="layout">
   <div class="wrap">
     <div id="text"></div>
@@ -66,6 +68,50 @@ input[type="range"] {
   </div>
   <div id="controls"></div>
 </div>
+
+## Usage
+
+```html
+<div id="glass"></div>
+```
+
+```js
+import LiquidGlass from "./index.js";
+
+const glass = new LiquidGlass(
+  document.querySelector("#glass")
+);
+```
+
+## Options
+
+| Option                | Default | Description                                               |
+| --------------------- | ------: | --------------------------------------------------------- |
+| `strength`            |    `32` | Distortion strength                                       |
+| `depth`               |     `8` | Displacement depth                                        |
+| `chromaticAberration` |     `3` | RGB separation                                            |
+| `blur`                |     `1` | Backdrop blur                                             |
+| `brightness`          |   `0.9` | Backdrop brightness                                       |
+| `radius`              |  `null` | Border radius in px; `null` uses the element's CSS radius |
+
+## API
+
+### Set
+
+Change one or multiple options
+
+```js
+glass.set({
+  strength: 50,
+  blur: 3,
+});
+```
+
+## Destroy
+
+```js
+glass.destroy();
+```
 
 <script type="module">
 
@@ -81,7 +127,7 @@ for (const [key, label, min, max, step, start, unit] of [
   [              "depth",                "Depth", 0,  30,    1,    8, " px"],
   ["chromaticAberration", "Chromatic aberration", 0,  12,  0.5,    3,    ""],
   [               "blur",                 "Blur", 0,  12,  0.5,    1, " px"],
-  [         "brightness",           "Brightness", 0, 1.5, 0.01, 0.56,    ""],
+  [         "brightness",           "Brightness", 0, 1.5, 0.01,  0.9,    ""],
   [             "radius",               "Radius", 0, 128,    1,   32, " px"],
 ]) {
   let value = start;
