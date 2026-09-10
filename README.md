@@ -40,7 +40,7 @@ glass.set({
 });
 ```
 
-## Destroy
+### Destroy
 
 ```js
 glass.destroy();
