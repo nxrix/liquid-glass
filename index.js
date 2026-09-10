@@ -51,7 +51,7 @@ export default class LiquidGlass {
   }
 
   #radius() {
-    return this.o.radius??parseFloat(getComputedStyle(this.el).borderTopLeftRadius)||0;
+    return this.o.radius??parseFloat(getComputedStyle(this.el).borderTopLeftRadius||0);
   }
 
   #build() {
