@@ -6,7 +6,7 @@ export default class LiquidGlass {
   constructor(el, options = {}) {
     this.el = el;
     this.o = {
-      strength: 32,
+      strength: 64,
       depth: 8,
       chromaticAberration: 3,
       blur: 1,
