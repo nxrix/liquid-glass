@@ -85,6 +85,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
   <div id="controls"></div>
 </div>
 
+<img id="map">
+
 <hr>
 
 ## Usage
@@ -143,6 +145,7 @@ const li = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in ege
 text.innerHTML += li.repeat(20);
 
 const lg = new LiquidGlass(glass, { radius: 32 });
+const feImage = lg.holder.querySelector("feImage");
 
 for (const [key, label, min, max, step, start, unit] of [
   [           "strength",             "Strength", 0, 100,    1,   32,    ""],
@@ -159,8 +162,10 @@ for (const [key, label, min, max, step, start, unit] of [
     <input type="range" min="${min}" max="${max}" step="${step}" value="${start}">`;
   const input = box.querySelector("input");
   const out = box.querySelector(".row span:last-child");
-  const show = () =>
-    (out.textContent = (key === "brightness" ? value.toFixed(2) : value) + unit);
+  const show = () => {
+    map.src = feImage.getAttribute("href");
+    out.textContent = (key === "brightness" ? value.toFixed(2) : value) + unit
+  };
 
   input.addEventListener("input", () => {
     value = +input.value;
