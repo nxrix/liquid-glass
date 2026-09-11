@@ -109,7 +109,7 @@ const glass = new LiquidGlass(
 
 | Option                | Default | Description                                               |
 | --------------------- | ------: | --------------------------------------------------------- |
-| `strength`            |    `32` | Distortion strength                                       |
+| `strength`            |    `64` | Distortion strength                                       |
 | `depth`               |     `8` | Displacement depth                                        |
 | `chromaticAberration` |     `3` | RGB separation                                            |
 | `blur`                |     `1` | Backdrop blur                                             |
@@ -152,7 +152,7 @@ for (const [key, label, min, max, step, start, unit] of [
   [              "depth",                "Depth", 0,  30,    1,    8, " px"],
   ["chromaticAberration", "Chromatic aberration", 0,  12,  0.5,    3,    ""],
   [               "blur",                 "Blur", 0,  12,  0.5,    1, " px"],
-  [         "brightness",           "Brightness", 0, 1.5, 0.01,  0.9,    ""],
+  [         "brightness",           "Brightness", 0, 1.5,  0.1,  0.9,    ""],
   [             "radius",               "Radius", 0, 128,    1,   32, " px"],
 ]) {
   let value = start;
