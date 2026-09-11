@@ -29,9 +29,21 @@ layout: default
   z-index: 1;
   pointer-events: none;
 
-  box-shadow:
+  /*box-shadow:
     inset 1px 1px 0 #fff5,
-    inset -1px -1px 0 #fff3;
+    inset -1px -1px 0 #fff3;*/
+}
+
+#glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(-45deg, #fff, #fff0, #fff0, #fff);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 #controls {
