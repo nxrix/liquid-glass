@@ -135,7 +135,7 @@ export default class LiquidGlass {
   }
 
   #surface() {
-    this.filter.id = `${this.id}-${++this.rev}`;
+    //this.filter.id = `${this.id}-${++this.rev}`;
     const { blur, brightness } = this.o;
     if (this.o.radius != null) this.el.style.borderRadius = this.#radius() + "px";
     const f = `url(#${this.id}-${this.rev}) blur(${blur}px) brightness(${brightness})`;
