@@ -29,12 +29,12 @@ layout: default
   z-index: 1;
   pointer-events: none;
 
-  /*box-shadow:
-    inset 1px 1px 0 #fff5,
-    inset -1px -1px 0 #fff3;*/
+  box-shadow:
+    inset 1px 1px 0 #fff7,
+    inset -1px -1px 0 #fff7;
 }
 
-#glass::before {
+/*#glass::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -44,7 +44,7 @@ layout: default
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   pointer-events: none;
-}
+}*/
 
 #controls {
   box-sizing: border-box;
@@ -148,7 +148,7 @@ const lg = new LiquidGlass(glass, { radius: 32 });
 const feImage = lg.holder.querySelector("feImage");
 
 for (const [key, label, min, max, step, start, unit] of [
-  [           "strength",             "Strength", 0, 100,    1,   32,    ""],
+  [           "strength",             "Strength", 0, 100,    1,   64,    ""],
   [              "depth",                "Depth", 0,  30,    1,    8, " px"],
   ["chromaticAberration", "Chromatic aberration", 0,  12,  0.5,    3,    ""],
   [               "blur",                 "Blur", 0,  12,  0.5,    1, " px"],
