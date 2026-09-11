@@ -20,7 +20,7 @@ const glass = new LiquidGlass(
 
 | Option                | Default | Description                                               |
 | --------------------- | ------: | --------------------------------------------------------- |
-| `strength`            |    `32` | Distortion strength                                       |
+| `strength`            |    `64` | Distortion strength                                       |
 | `depth`               |     `8` | Displacement depth                                        |
 | `chromaticAberration` |     `3` | RGB separation                                            |
 | `blur`                |     `1` | Backdrop blur                                             |
