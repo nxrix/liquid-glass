@@ -1,8 +1,12 @@
 const SVG = "http://www.w3.org/2000/svg";
 
+const NO_SVG_BACKDROP =
+  /iP(hone|ad|od)|Macintosh/.test(navigator.userAgent) &&
+  !/Chrome\/|Chromium|Edg\//.test(navigator.userAgent);
+
 export default class LiquidGlass {
   static n = 0;
-  rev = 0;
+  //rev = 0;
   constructor(el, options = {}) {
     this.el = el;
     this.o = {
@@ -138,7 +142,11 @@ export default class LiquidGlass {
     //this.filter.id = `${this.id}-${++this.rev}`;
     const { blur, brightness } = this.o;
     if (this.o.radius != null) this.el.style.borderRadius = this.#radius() + "px";
-    const f = `url(#${this.id}-${this.rev}) blur(${blur}px) brightness(${brightness})`;
+    const f = [
+      !NO_SVG_BACKDROP && `url(#${this.id})`,
+      blur > 0 && `blur(${blur}px)`,
+      `brightness(${brightness})`,
+    ].filter(Boolean).join(" ");
     this.el.style.backdropFilter = f;
     this.el.style.setProperty("-webkit-backdrop-filter", f);
   }
