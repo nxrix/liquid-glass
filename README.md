@@ -1,6 +1,6 @@
 # Liquid Glass
 
-A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps.
+A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps. (Falls back to simple blur on WebKit.)
 
 ## Usage
 
