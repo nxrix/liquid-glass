@@ -4,9 +4,12 @@ layout: default
 
 <style>
 
-.wrap {
+.layout {
   display: flex;
   flex-wrap: wrap;
+}
+
+.wrap {
   position: relative;
   width: fit-content;
   max-width: 512px;
@@ -39,7 +42,7 @@ layout: default
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(-45deg, #fff, #fff0, #fff0, #fff);
+  background: linear-gradient(-45deg, #fff8, #fff4, #fff0, #fff4, #fff);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   pointer-events: none;
@@ -73,7 +76,6 @@ layout: default
 #controls {
   box-sizing: border-box;
   padding: 16px;
-  max-width: 512px;
 }
 
 .row {
@@ -97,9 +99,11 @@ input[type="range"] {
 
 # Liquid Glass
 
-A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps.
+A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filter` and SVG displacement maps. (Falls back to simple blur on WebKit.)
 
 <hr>
+
+## Playground
 
 <div class="layout">
   <div class="wrap">
@@ -110,6 +114,10 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 </div>
 
 <img id="map">
+
+The displacement map is generated only on initialization and when the element is resized. The map is built as an SVG and embedded as a Base64 data URI, avoiding per-frame image generation or rendering.
+
+For width and height animations, use `transform: scale()` instead of animating width or height. Since transforms don't trigger the ResizeObserver, the displacement map doesn't need to be regenerated every frame.
 
 <hr>
 
