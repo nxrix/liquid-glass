@@ -112,7 +112,9 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 
 ## Playground
 
+<!-- -->
 <br>
+<!-- -->
 
 <div class="layout">
   <div class="wrap">
@@ -164,7 +166,9 @@ const glass = new LiquidGlass(
 
 ## API
 
+<!-- -->
 <br>
+<!-- -->
 
 ### Set
 
