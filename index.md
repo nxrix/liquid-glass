@@ -7,12 +7,16 @@ layout: default
 .layout {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
 .wrap {
   position: relative;
   width: fit-content;
   max-width: 512px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--theme-foreground-faintest);
 }
 
 #text {
@@ -32,8 +36,8 @@ layout: default
   z-index: 1;
 
   box-shadow:
-    inset 1px 1px 0 #fff7,
-    inset -1px -1px 0 #fff7;
+    inset 1px 1px 1px #fff7,
+    inset -1px -1px 1px #fff7;
 }
 
 /*#glass::before {
@@ -76,6 +80,9 @@ layout: default
 #controls {
   box-sizing: border-box;
   padding: 16px;
+  width: 256px;
+  border-radius: 8px;
+  border: 1px solid var(--theme-foreground-faintest);
 }
 
 .row {
@@ -105,6 +112,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 
 ## Playground
 
+<br>
+
 <div class="layout">
   <div class="wrap">
     <div id="text"></div>
@@ -130,8 +139,11 @@ For width and height animations, use `transform: scale()` instead of animating w
 ```js
 import LiquidGlass from "https://nxrix.github.io/liquid-glass/index.js";
 
+const options = { radius: 8 };
+
 const glass = new LiquidGlass(
-  document.querySelector("#glass")
+  document.querySelector("#glass"),
+  options
 );
 ```
 
@@ -152,15 +164,12 @@ const glass = new LiquidGlass(
 
 ## API
 
+<br>
+
 ### Set
 
-Change one or multiple options
-
 ```js
-glass.set({
-  strength: 50,
-  blur: 3,
-});
+glass.set(options);
 ```
 
 ### Destroy
@@ -202,7 +211,7 @@ for (const [key, label, min, max, step, start, unit] of [
   const out = box.querySelector(".row span:last-child");
   const show = () => {
     map.src = feImage.getAttribute("href");
-    out.textContent = (key === "brightness" ? value.toFixed(2) : value) + unit
+    out.textContent = value + unit
   };
 
   input.addEventListener("input", () => {
