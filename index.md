@@ -110,12 +110,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 
 <hr>
 
-## Playground
-
-<!-- -->
+<h2>Playground</h2>
 <br>
-<!-- -->
-
 <div class="layout">
   <div class="wrap">
     <div id="text"></div>
@@ -164,11 +160,8 @@ const glass = new LiquidGlass(
 
 <hr>
 
-## API
-
-<!-- -->
+<h2>API</h2>
 <br>
-<!-- -->
 
 ### Set
 
