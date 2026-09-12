@@ -7,7 +7,7 @@ layout: default
 .layout {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
 }
 
 .wrap {
@@ -24,6 +24,7 @@ layout: default
   padding: 16px;
   max-height: 512px;
   overflow-y: scroll;
+  border-radius: inherit;
 }
 
 #glass {
@@ -78,6 +79,9 @@ layout: default
 }
 
 #controls {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
   box-sizing: border-box;
   padding: 16px;
   width: 256px;
@@ -117,10 +121,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
     <div id="text"></div>
     <div id="glass"></div>
   </div>
-  <div id="controls"></div>
+  <div id="controls"><img id="map"></div>
 </div>
-
-<img id="map">
 
 The displacement map is generated only on initialization and when the element is resized. The map is built as an SVG and embedded as a Base64 data URI, avoiding per-frame image generation or rendering.
 
@@ -216,7 +218,8 @@ for (const [key, label, min, max, step, start, unit] of [
     show();
   });
   show();
-  controls.append(box);
+  //controls.append(box);
+  controls.insertBefore(box, map.previousElementSibling);
 }
 
 </script>
