@@ -27,7 +27,6 @@ layout: default
   left: 50%;
   translate: -50% -50%;
   z-index: 1;
-  pointer-events: none;
 
   box-shadow:
     inset 1px 1px 0 #fff7,
@@ -45,6 +44,31 @@ layout: default
   mask-composite: exclude;
   pointer-events: none;
 }*/
+
+@keyframes glassClick {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(1.10, 0.88);
+  }
+  50% {
+    transform: scale(0.96, 1.14);
+  }
+  70% {
+    transform: scale(1.03, 0.94);
+  }
+  85% {
+    transform: scale(0.99, 1.025);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#glass.click {
+  animation: glassClick 0.7s cubic-bezier(.34, 1.56, .64, 1);
+}
 
 #controls {
   box-sizing: border-box;
@@ -144,14 +168,20 @@ import LiquidGlass from "./index.js";
 const li = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in egestas lectus. Praesent interdum est eu elit porta, non posuere ligula porttitor. In eget feugiat augue, eu tristique ipsum. Nulla volutpat risus felis, ac suscipit tellus accumsan mattis. Aliquam erat volutpat. Aenean id nulla eget odio suscipit rutrum ut et tortor. Nullam eget fringilla eros. Donec non imperdiet enim. Mauris efficitur sit amet est ac pellentesque. Morbi at nulla id mi euismod sodales. Vivamus consectetur, turpis at fringilla interdum, neque dolor sollicitudin odio, sed varius nisi arcu vitae ligula.";
 text.innerHTML += li.repeat(20);
 
+glass.addEventListener("click", () => {
+  glass.classList.remove("click");
+  void glass.offsetWidth;
+  glass.classList.add("click");
+});
+
 const lg = new LiquidGlass(glass, { radius: 32 });
 const feImage = lg.holder.querySelector("feImage");
 
 for (const [key, label, min, max, step, start, unit] of [
-  [           "strength",             "Strength", 0, 100,    1,   64,    ""],
-  [              "depth",                "Depth", 0,  30,    1,    8, " px"],
-  ["chromaticAberration", "Chromatic aberration", 0,  12,  0.5,    3,    ""],
-  [               "blur",                 "Blur", 0,  12,  0.5,    1, " px"],
+  [           "strength",             "Strength", 0, 128,    1,   64,    ""],
+  [              "depth",                "Depth", 0,  32,    1,    8, " px"],
+  ["chromaticAberration", "Chromatic aberration", 0,  16,  0.5,    3,    ""],
+  [               "blur",                 "Blur", 0,  16,  0.5,    1, " px"],
   [         "brightness",           "Brightness", 0, 1.5,  0.1,  0.9,    ""],
   [             "radius",               "Radius", 0, 128,    1,   32, " px"],
 ]) {
