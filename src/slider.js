@@ -41,7 +41,8 @@ class LiquidSlider extends HTMLElement {
           position: absolute;
           top: 50%;
           translate: 0 -50%;
-          width: 100%;
+          width: calc(100% - 32px);
+          margin: 0 16px;
           height: 4px;
           border-radius: 2px;
           background: light-dark(rgba(120, 120, 128, .26), rgba(120, 120, 128, .36));
@@ -124,7 +125,7 @@ class LiquidSlider extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 32, depth: 1, blur: 0, chromaticAberration: 0 });
+    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 26, depth: 2, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
