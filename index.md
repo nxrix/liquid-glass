@@ -144,7 +144,9 @@ For width and height animations, use `transform: scale()` instead of animating w
 
 <hr>
 
-## Usage
+<h2>Usage<br><br></h2>
+
+### Library
 
 ```html
 <div id="glass"></div>
@@ -159,6 +161,18 @@ const glass = new LiquidGlass(
   document.querySelector("#glass"),
   options
 );
+```
+
+### Components
+
+```html
+<script type="module" src="https://nxrix.github.io/liquid-glass/src/slider.js"></script>
+<liquid-slider></liquid-slider>
+```
+
+```html
+<script type="module" src="https://nxrix.github.io/liquid-glass/src/switch.js"></script>
+<liquid-switch></liquid-switch>
 ```
 
 <hr>
