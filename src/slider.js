@@ -62,12 +62,16 @@ class LiquidSlider extends HTMLElement {
           height: 22px;
           border-radius: 11px;
           background: #fff;
-          box-shadow: 0 3px 8px rgba(0, 0, 0, .15), 0 1px 1px rgba(0, 0, 0, .16);
+          box-shadow:
+            0 3px 8px rgba(0, 0, 0, .15),
+            0 1px 1px rgba(0, 0, 0, .16),
+            inset 1px 1px 1px #fff7,
+            inset -1px -1px 1px #fff7;
           transition: background-color .3s cubic-bezier(.4, 0, .2, 1), transform .3s cubic-bezier(.4, 0, .2, 1);
         }
         #thumb.moving {
           background: #fff0;
-          transform: scale(1.05);
+          transform: scale(1.25);
         }
       </style>
       <div id="track"><div id="fill"></div></div>
@@ -120,7 +124,7 @@ class LiquidSlider extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 24, depth: 4, chromaticAberration: 1 });
+    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 128, depth: 1, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
