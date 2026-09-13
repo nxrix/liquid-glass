@@ -106,6 +106,11 @@ input[type="range"] {
   cursor: pointer;
 }
 
+liquid-slider {
+  width: calc(100% - 32px);
+  margin: 0 16px;
+}
+
 </style>
 
 # Liquid Glass
@@ -126,6 +131,8 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
     <img id="map">
   </div>
 </div>
+
+<liquid-slider></liquid-slider>
 
 The displacement map is generated only on initialization and when the element is resized. The map is built as an SVG and embedded as a Base64 data URI, avoiding per-frame image generation or rendering.
 
@@ -183,6 +190,7 @@ glass.destroy();
 
 import LiquidGlass from "./src/index.js";
 import "./src/slider.js";
+import "./src/switch.js";
 
 const li = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in egestas lectus. Praesent interdum est eu elit porta, non posuere ligula porttitor. In eget feugiat augue, eu tristique ipsum. Nulla volutpat risus felis, ac suscipit tellus accumsan mattis. Aliquam erat volutpat. Aenean id nulla eget odio suscipit rutrum ut et tortor. Nullam eget fringilla eros. Donec non imperdiet enim. Mauris efficitur sit amet est ac pellentesque. Morbi at nulla id mi euismod sodales. Vivamus consectetur, turpis at fringilla interdum, neque dolor sollicitudin odio, sed varius nisi arcu vitae ligula.";
 text.innerHTML += li.repeat(20);
