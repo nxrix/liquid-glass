@@ -22,7 +22,9 @@ export default class LiquidGlass {
     this.holder.setAttribute("width", 0);
     this.holder.setAttribute("height", 0);
     this.holder.style.display = "none";
-    document.body.append(this.holder);
+    //document.body.append(this.holder);
+    const root = el.getRootNode();
+    root.append(this.holder);
     this.ro = new ResizeObserver(() => {
       this.#map();
       this.#surface();
