@@ -65,8 +65,8 @@ class LiquidSlider extends HTMLElement {
           box-shadow:
             0 3px 8px rgba(0, 0, 0, .15),
             0 1px 1px rgba(0, 0, 0, .16),
-            inset 1px 1px 1px #fff7,
-            inset -1px -1px 1px #fff7;
+            inset  0.5px  0.5px 0.5px #fff7,
+            inset -0.5px -0.5px 0.5px #fff7;
           transition: background-color .3s cubic-bezier(.4, 0, .2, 1), transform .3s cubic-bezier(.4, 0, .2, 1);
         }
         #thumb.moving {
@@ -124,7 +124,7 @@ class LiquidSlider extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 64, depth: 1, blur: 0, chromaticAberration: 0 });
+    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 32, depth: 1, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
@@ -154,7 +154,8 @@ class LiquidSlider extends HTMLElement {
     const p = Math.max(0, Math.min(1, (this.value - this.min) / (this.max - this.min || 1)));
     this.#fill.style.width = `${p * 100}%`;
     this.#fill.style.background = this.#accent();
-    this.#thumb.style.left = `${p * 100}%`;
+    //this.#thumb.style.left = `${p * 100}%`;
+    this.#thumb.style.left = `calc(${p * 100}% + ${16 - p * 32}px)`;
     this.tabIndex = this.disabled ? -1 : 0;
     this.setAttribute("aria-valuemin", this.min);
     this.setAttribute("aria-valuemax", this.max);
@@ -188,7 +189,8 @@ class LiquidSlider extends HTMLElement {
   };
 
   #pick = (x) => {
-    const p = Math.max(0, Math.min(1, (x - this.#rect.left) / this.#rect.width));
+    //const p = Math.max(0, Math.min(1, (x - this.#rect.left) / this.#rect.width));
+    const p = Math.max(0, Math.min(1, (x - this.#rect.left - 16) / (this.#rect.width - 32)));
     this.#apply(this.min + p * (this.max - this.min));
   };
 
