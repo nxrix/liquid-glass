@@ -24,7 +24,7 @@ class LiquidSlider extends HTMLElement {
         :host {
           display: inline-block;
           position: relative;
-          width: 129px;
+          width: 161px;
           height: 27px;
           touch-action: none;
           user-select: none;
