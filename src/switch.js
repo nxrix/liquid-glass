@@ -64,7 +64,7 @@ class LiquidSwitch extends HTMLElement {
         }
         #knob.moving {
           background: #fff0;
-          transform: scale(1.05);
+          transform: scale(1.25);
         }
         #knob.drag {
           transition: background-color .3s cubic-bezier(.4, 0, .2, 1), transform .3s cubic-bezier(.4, 0, .2, 1);
