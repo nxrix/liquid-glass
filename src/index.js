@@ -88,10 +88,10 @@ export default class LiquidGlass {
         <style>.m{mix-blend-mode:screen}</style>
         <defs>
           <linearGradient id="x" x1="${Math.ceil((radius / w) * 15)}%" x2="${Math.floor(100 - (radius / w) * 15)}%" y1="0" y2="0">
-            <stop offset="0%" stop-color="#f00"/><stop offset="100%" stop-color="#000"/>
+            <stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#f00"/>
           </linearGradient>
           <linearGradient id="y" x1="0" x2="0" y1="${Math.ceil((radius / h) * 15)}%" y2="${Math.floor(100 - (radius / h) * 15)}%">
-            <stop offset="0%" stop-color="#0f0"/><stop offset="100%" stop-color="#000"/>
+            <stop offset="0%" stop-color="#000"/><stop offset="100%" stop-color="#0f0"/>
           </linearGradient>
         </defs>
         <rect width="${w}" height="${h}" fill="#808080"/>
