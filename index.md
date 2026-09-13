@@ -140,7 +140,7 @@ For width and height animations, use `transform: scale()` instead of animating w
 ```
 
 ```js
-import LiquidGlass from "https://nxrix.github.io/liquid-glass/index.js";
+import LiquidGlass from "https://nxrix.github.io/liquid-glass/src/index.js";
 
 const options = { radius: 8 };
 
@@ -181,7 +181,8 @@ glass.destroy();
 
 <script type="module">
 
-import LiquidGlass from "./index.js";
+import LiquidGlass from "./src/index.js";
+import "./src/slider.js";
 
 const li = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in egestas lectus. Praesent interdum est eu elit porta, non posuere ligula porttitor. In eget feugiat augue, eu tristique ipsum. Nulla volutpat risus felis, ac suscipit tellus accumsan mattis. Aliquam erat volutpat. Aenean id nulla eget odio suscipit rutrum ut et tortor. Nullam eget fringilla eros. Donec non imperdiet enim. Mauris efficitur sit amet est ac pellentesque. Morbi at nulla id mi euismod sodales. Vivamus consectetur, turpis at fringilla interdum, neque dolor sollicitudin odio, sed varius nisi arcu vitae ligula.";
 text.innerHTML += li.repeat(20);
@@ -207,8 +208,8 @@ for (const [key, label, min, max, step, start, unit] of [
   const box = document.createElement("div");
   box.innerHTML = `
     <div class="row"><span>${label}</span><span></span></div>
-    <input type="range" min="${min}" max="${max}" step="${step}" value="${start}">`;
-  const input = box.querySelector("input");
+    <liquid-slider min="${min}" max="${max}" step="${step}" value="${start}"></liquid-slider>`;
+  const input = box.querySelector("liquid-slider");
   const out = box.querySelector(".row span:last-child");
   const show = () => {
     map.src = feImage.getAttribute("href");
