@@ -71,7 +71,7 @@ class LiquidSlider extends HTMLElement {
         }
         #thumb.moving {
           background: #fff0;
-          transform: scale(1.25);
+          transform: scale(1.5);
         }
       </style>
       <div id="track"><div id="fill"></div></div>
@@ -124,7 +124,7 @@ class LiquidSlider extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 128, depth: 1, blur: 0, chromaticAberration: 0 });
+    this.#glass ??= new LiquidGlass(this.#thumb, { strength: 64, depth: 1, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
