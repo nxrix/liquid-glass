@@ -106,7 +106,7 @@ input[type="range"] {
   cursor: pointer;
 }
 
-liquid-slider {
+#controls liquid-slider {
   width: calc(100% - 32px);
   margin: 0 16px;
 }
@@ -132,6 +132,7 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
   </div>
 </div>
 <br>
+<liquid-slider></liquid-slider>
 <liquid-switch></liquid-switch>
 
 The displacement map is generated only on initialization and when the element is resized. The map is built as an SVG and embedded as a Base64 data URI, avoiding per-frame image generation or rendering.
@@ -216,8 +217,8 @@ for (const [key, label, min, max, step, start, unit] of [
   const box = document.createElement("div");
   box.innerHTML = `
     <div class="row"><span>${label}</span><span></span></div>
-    <liquid-slider min="${min}" max="${max}" step="${step}" value="${start}"></liquid-slider>`;
-  const input = box.querySelector("liquid-slider");
+    <input type="range" min="${min}" max="${max}" step="${step}" value="${start}">`;
+  const input = box.querySelector("input");
   const out = box.querySelector(".row span:last-child");
   const show = () => {
     map.src = feImage.getAttribute("href");
