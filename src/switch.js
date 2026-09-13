@@ -55,7 +55,11 @@ class LiquidSwitch extends HTMLElement {
           height: 27px;
           border-radius: 50%;
           background: #fff;
-          box-shadow: 0 3px 8px rgba(0, 0, 0, .15), 0 1px 1px rgba(0, 0, 0, .16);
+          box-shadow:
+            0 3px 8px rgba(0, 0, 0, .15),
+            0 1px 1px rgba(0, 0, 0, .16),
+            inset 1px 1px 1px #fff7,
+            inset -1px -1px 1px #fff7;
           transition: translate .25s cubic-bezier(.2, .8, .3, 1), background-color .3s cubic-bezier(.4, 0, .2, 1), transform .3s cubic-bezier(.4, 0, .2, 1);
         }
         #knob.moving {
@@ -110,7 +114,7 @@ class LiquidSwitch extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#knob, { strength: 32, depth: 5, chromaticAberration: 1 });
+    this.#glass ??= new LiquidGlass(this.#knob, { strength: 128, depth: 1, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
