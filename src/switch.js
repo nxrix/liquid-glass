@@ -114,7 +114,7 @@ class LiquidSwitch extends HTMLElement {
   }
 
   connectedCallback() {
-    this.#glass ??= new LiquidGlass(this.#knob, { strength: 128, depth: 1, blur: 0, chromaticAberration: 0 });
+    this.#glass ??= new LiquidGlass(this.#knob, { strength: 64, depth: 1, blur: 0, chromaticAberration: 0 });
     this.#scheme ??= matchMedia("(prefers-color-scheme: dark)");
     this.#scheme.onchange = () => this.#render();
     this.#render();
