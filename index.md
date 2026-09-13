@@ -121,19 +121,22 @@ A tiny, dependency-free liquid glass effect for the web using CSS `backdrop-filt
 
 <h2>Playground<br><br></h2>
 
-<div class="layout">
-  <div class="wrap">
-    <div id="text"></div>
-    <div id="glass"></div>
+<div>
+  <div class="layout">
+    <div class="wrap">
+      <div id="text"></div>
+      <div id="glass"></div>
+    </div>
+    <div id="controls">
+      <br>
+      <img id="map">
+    </div>
   </div>
-  <div id="controls">
-    <br>
-    <img id="map">
-  </div>
+  <br>
+  <liquid-slider></liquid-slider>
+  <br>
+  <liquid-switch></liquid-switch>
 </div>
-<br>
-<liquid-slider></liquid-slider>
-<liquid-switch></liquid-switch>
 
 The displacement map is generated only on initialization and when the element is resized. The map is built as an SVG and embedded as a Base64 data URI, avoiding per-frame image generation or rendering.
 
