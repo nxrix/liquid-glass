@@ -24,7 +24,7 @@ export default class LiquidGlass {
     this.holder.style.display = "none";
     //document.body.append(this.holder);
     const root = el.getRootNode();
-    root.append(this.holder);
+    (root instanceof ShadowRoot ? root : document.body).append(this.holder);
     this.ro = new ResizeObserver(() => {
       this.#map();
       this.#surface();
